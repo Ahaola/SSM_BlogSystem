@@ -38,59 +38,60 @@
             </div>
             <div class="row">
                 <span>确认密码</span>
-                <input type="password" id="password">
+                <input type="password" id="password2">
             </div>
             <div class="row">
                 <button id="submit" onclick="mysub()">提交</button>
             </div>
         </div>
     </div>
+
     <script>
-        //提交注册事件
+        // 提交注册事件
         function mysub(){
-            //非空校验
-            var username = jQuery("#username");
-            var password = jQuery("#password");
-            var password2 = jQuery("#password2");
-            if(username.val() == ""){
-                alert("请先输入用户名！")
-                username.focus();//将鼠标光标设置到用户名控件处
-                return;
-            }
-            if(password.val() == ""){
-                alert("请先输入密码！")
-                password.focus();
-                return;
-            }
-            if(password2.val() == ""){
-                alert("请先输入确认密码！")
-                password2.focus();
-                return;
-            }
-            //2、判断两次密码是否一致
-            if(password.val() != password2.val()){
-                alert("两次输入的密码不一致！")
-                return;
-            }
-            //3、Ajax提交请求
-            jQuery.ajax({
-                url:"/user/beg",
-                type:"POST",
-                data:{"username":username.val(),"password":password.val()},
-                success:function(result){
-                    //响应的结果
-                    if(result != null && result.code == 200 && result.data==1){
-                        //执行成功
-                        if(confirm("恭喜，注册成功，是否要跳转到登录页面？")){
-                            location.href = "/login.html";
-                        }else{
-                            alert("抱歉，执行失败，请稍后再试！")
-                        }
-                    } 
+           // 1.非空效验
+           var username = jQuery("#username");
+           var password = jQuery("#password");
+           var password2 = jQuery("#password2");
+           if(username.val()==""){
+            alert("请先输入用户名！");
+            username.focus(); // 将鼠标光标设置到用户名控件
+            return;
+           }
+           if(password.val()==""){
+            alert("请先输入密码！");
+            password.focus();
+            return;
+           }
+           if(password2.val()==""){
+            alert("请先输入确认密码！");
+            password2.focus();
+            return;
+           }
+           // 2.判断两次密码是否一致
+           if(password.val()!=password2.val()){
+            alert("两次密码输入的不一致，请先检查！");
+            password.focus();
+            return;
+           }
+           // 3.ajax 提交请求 
+           jQuery.ajax({
+            url:"/user/reg",
+            type:"POST",
+            data:{"username":username.val(),"password":password.val()},
+            success:function(result){
+                // 响应的结果
+            if(result!=null && result.code==200 && result.data==1){
+                    // 执行成功
+                    if(confirm("恭喜：注册成功！是否要跳转到登录页面？")){
+                        location.href = "/login.html";
+                    }
+                }else{
+                    alert("抱歉执行失败，请稍后再试！");
                 }
-            });
+            }
+           });
         }
     </script>
 </body>
-
 </html>

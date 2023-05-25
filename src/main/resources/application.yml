@@ -18,4 +18,4 @@ logging:
   level:
     com:
       example:
-        demo: debugb
+        demo: debug
