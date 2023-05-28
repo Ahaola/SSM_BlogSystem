@@ -1,8 +1,10 @@
 # 配置数据库的连接字符串
 spring:
-  #  jackson:
-  #    date-format: 'yyyy-MM-dd HH:mm:ss'
-  #    time-zone: 'GMT+8'
+  #设置时间格式    GMT是格林尼治时间的意思
+  #spring内置了Jackson函数，通过把传过来的ajax请求转换成 json格式字符串
+#    jackson:
+#      date-format: 'yyyy-MM-dd HH:mm:ss'
+#      time-zone: 'GMT+8'
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/mycnblog?characterEncoding=utf8
     username: root

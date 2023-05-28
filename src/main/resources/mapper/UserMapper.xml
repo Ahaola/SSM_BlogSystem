@@ -9,8 +9,8 @@
         select * from userinfo where username=#{username}
     </select>
 
-<!--    <select id="getUserById" resultType="com.example.demo.entity.Userinfo">-->
-<!--        select * from userinfo where id=#{id}-->
-<!--    </select>-->
+    <select id="getUserById" resultType="com.example.demo.entity.Userinfo">
+        select * from userinfo where id=#{id}
+    </select>
 
 </mapper>

@@ -74,4 +74,36 @@ public class UserController {
         return AjaxResult.success(userinfoVO);
     }
 
+    /**
+     * 注销（退出登录）
+     *
+     * @param session
+     * @return
+     */
+    @RequestMapping("/logout")
+    public AjaxResult logout(HttpSession session) {
+        session.removeAttribute(AppVariable.USER_SESSION_KEY);
+        return AjaxResult.success(1);
+    }
+
+    @RequestMapping("/getuserbyid")
+    public AjaxResult getUserById(Integer id) {
+        if (id == null || id <= 0) {
+            // 无效参数
+            return AjaxResult.fail(-1, "非法参数");
+        }
+        Userinfo userinfo = userService.getUserById(id);
+        if (userinfo == null || userinfo.getId() <= 0) {
+            // 无效参数
+            return AjaxResult.fail(-1, "非法参数");
+        }
+        // 去除 userinfo 中的敏感数据，ex：密码
+        userinfo.setPassword("");
+        UserinfoVO userinfoVO = new UserinfoVO();
+        BeanUtils.copyProperties(userinfo, userinfoVO);
+        // 查询当前用户发表的文章数
+        userinfoVO.setArtCount(articleService.getArtCountByUid(id));
+        return AjaxResult.success(userinfoVO);
+    }
+
 }

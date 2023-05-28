@@ -2,7 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.ArticleMapper">
 
+    <update id="incrRCount">
+        update articleinfo set rcount=rcount+1 where id=#{id}
+    </update>
+
+    <select id="getDetail" resultType="com.example.demo.entity.Articleinfo">
+        select * from articleinfo where id=#{id}
+    </select>
+
+    <delete id="del">
+        delete from articleinfo where id = #{id} and uid=#{uid}
+    </delete>
+
     <select id="getArtCountByUid" resultType="Integer">
         select count(*) from articleinfo where uid=#{uid}
+    </select>
+
+    <select id="getMyList" resultType="com.example.demo.entity.Articleinfo">
+        select * from articleinfo where uid=#{uid}
     </select>
 </mapper>
