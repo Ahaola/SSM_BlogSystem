@@ -34,6 +34,8 @@ public class UserController {
                 !StringUtils.hasLength(userinfo.getPassword())) {
             return AjaxResult.fail(-1, "非法参数");
         }
+        // 密码加盐处理
+        userinfo.setPassword(PasswordUtils.encrypt(userinfo.getPassword()));
         return AjaxResult.success(userService.reg(userinfo));
     }
 

@@ -20,8 +20,8 @@ public class ArticleService {
         return articleMapper.getMyList(uid);
     }
 
-    public int del(Integer id,Integer uid){
-        return  articleMapper.del(id,uid);
+    public int del(Integer id, Integer uid) {
+        return articleMapper.del(id, uid);
     }
 
     public Articleinfo getDetail(Integer id) {
@@ -30,6 +30,22 @@ public class ArticleService {
 
     public int incrRCount(Integer id) {
         return articleMapper.incrRCount(id);
+    }
+
+    public int add(Articleinfo articleinfo) {
+        return articleMapper.add(articleinfo);
+    }
+
+    public int update(Articleinfo articleinfo) {
+        return articleMapper.update(articleinfo);
+    }
+
+    public List<Articleinfo> getListByPage(Integer psize, Integer offsize) {
+        return articleMapper.getListByPage(psize, offsize);
+    }
+
+    public int getCount() {
+        return articleMapper.getCount();
     }
 
 }

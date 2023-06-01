@@ -15,7 +15,7 @@
 <body>
     <!-- 导航栏 -->
     <div class="nav">
-        <img src="img/logo2.jpg" alt="">
+        <img src="img/主页头像.jpeg" alt="">
         <span class="title">我的博客系统</span>
         <!-- 用来占据中间位置 -->
         <span class="spacer"></span>
@@ -29,9 +29,9 @@
         <!-- 左侧个人信息 -->
         <div class="container-left">
             <div class="card">
-                <img src="img/doge.jpg" class="avtar" alt="">
+                <img src="img/主页头像.jpeg" class="avtar" alt="">
                 <h3 id="username"></h3>
-                <a href="http:www.github.com">github 地址</a>
+                <a href="https://github.com/Ahaola">github 地址</a>
                 <div class="counter">
                     <span>文章</span>
                     <span>分类</span>
@@ -88,11 +88,11 @@
                                 artListDiv += artItem.content;
                                 artListDiv += '</div>';
                                 artListDiv += '<a href="blog_content.html?id='+
-                                    artItem.id + '" class="detail">查看全文 &gt;&gt;</a>&nbsp;&nbsp;';
+                                    artItem.id + '" class="detail">查看全文 &gt;</a>&nbsp;&nbsp;';
                                 artListDiv += '<a href="blog_edit.html?id='+
-                                    artItem.id + '" class="detail">修改 &gt;&gt;</a>&nbsp;&nbsp;';  
+                                    artItem.id + '" class="detail">修改 &gt;</a>&nbsp;&nbsp;';  
                                 artListDiv += '<a href="javascript:myDel('+
-                                    artItem.id+');" class="detail">删除 &gt;&gt;</a>'; 
+                                    artItem.id+');" class="detail">删除 &gt;</a>'; 
                                 artListDiv += '</div>';    
                             }
                             jQuery("#artDiv").html(artListDiv);

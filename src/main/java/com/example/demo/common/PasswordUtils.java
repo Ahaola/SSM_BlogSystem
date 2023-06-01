@@ -47,7 +47,7 @@ public class PasswordUtils {
     public static boolean check(String inputPassword, String finalPassword) {
         if (StringUtils.hasLength(inputPassword) && StringUtils.hasLength(finalPassword) &&
                 finalPassword.length() == 65) {
-            // 1.得到盐值
+            // 1.得到盐值 使用$进行分割  那么[0]就是盐值
             String salt = finalPassword.split("\\$")[0];
             // 2.使用之前加密的步骤，将明文密码和已经得到的盐值进行加密，生成最终的密码
             String confirmPassword = PasswordUtils.encrypt(inputPassword, salt);

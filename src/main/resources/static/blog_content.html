@@ -19,7 +19,7 @@
 <body>
     <!-- 导航栏 -->
     <div class="nav">
-        <img src="img/logo2.jpg" alt="">
+        <img src="img/主页头像.jpeg" alt="">
         <span class="title">我的博客系统</span>
         <!-- 用来占据中间位置 -->
         <span class="spacer"></span>
@@ -32,9 +32,9 @@
         <!-- 左侧个人信息 -->
         <div class="container-left">
             <div class="card">
-                <img src="img/doge.jpg" class="avtar" alt="">
+                <img src="img/博客系统头像.jpg" class="avtar" alt="">
                 <h3 id="username"></h3>
-                <a href="http:www.github.com">github 地址</a>
+                <a href="https://github.com/Ahaola">github地址</a>
                 <div class="counter">
                     <span>文章</span>
                     <span>分类</span>
@@ -95,22 +95,6 @@
                 });
             }
             getArtDetail(getUrlValue("id"));
-            // 查询用户的详情信息
-            function showUser(id){
-                jQuery.ajax({
-                    url:"/user/getuserbyid",
-                    type:"POST",
-                    data:{"id":id},
-                    success:function(result){
-                        if(result!=null && result.code==200 && result.data.id>0){
-                            jQuery("#username").text(result.data.username);
-                            jQuery("#artCount").text(result.data.artCount);
-                        }else{
-                            alert("抱歉：查询用户信息失败，请重试！");
-                        }
-                    }
-                });
-            }
             // 阅读量 +1
             function updataRCount(){
                 // 先得到文章 id
